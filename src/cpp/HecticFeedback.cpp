@@ -32,9 +32,18 @@ void FeedbackPerformer::Perform(FeedbackType type) {
     lastEvent = std::chrono::steady_clock::now();
 }
 
+void FeedbackPerformer::Wait() {
+    std::this_thread::sleep_for(minDelay);
+}
+
+void FeedbackPerformer::WaitAndPerform(FeedbackType type) {
+    Wait();
+    Perform(type);
+}
+
 FeedbackPerformer::FeedbackPerformer() {
-    // Default delay = 33ms / max. 30 fps
-    minDelay = std::chrono::milliseconds(33);
+    // Default delay = 100ms
+    minDelay = std::chrono::milliseconds(100);
     elapsed = std::chrono::milliseconds(0);
     lastEvent = std::chrono::steady_clock::now();
 }

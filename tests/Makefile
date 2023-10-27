@@ -13,4 +13,4 @@ all: $(BINS)
 	$(CC) $(CFLAGS) -o $(BIN)/$@ $< $(LFLAGS)
 
 clean:
-	rm -rf $(BIN)*.dylib $(BINS)
+	rm -rf $(BIN)*.dylib $(BIN)*.so $(BINS) 

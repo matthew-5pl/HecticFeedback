@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <chrono>
+#include <thread>
 
 #define HEC_DEBUG_LOG_INFO(x) std::cout << "HecticFeedback/Debug/Info: " << x << std::endl
 #define HEC_DEBUG_LOG_ERR(x) std::cout << "HecticFeedback/Debug/Error: " << x << std::endl
@@ -38,6 +39,11 @@ public:
     // Perform feedback.
     // @param type Type of feedback to send, changes haptic feel
     void Perform(FeedbackType type);
+    // Wait in this thread for the set delay time.
+    void Wait();
+    // Wait in this thread for the set delay time, then perform feedback.
+    // Equivalent to calling Wait() and Perform().
+    void WaitAndPerform(FeedbackType type);
     // Constructor.
     FeedbackPerformer();
 };
