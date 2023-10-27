@@ -23,7 +23,7 @@ void FeedbackPerformer::Perform(FeedbackType type) {
 
     if(elapsed < minDelay) {
 #ifdef HACTIC_DEBUG
-    HEC_DEBUG_LOG_INFO("Can't trigger: Minimum delay is  " + std::to_string(minDelay.count()) + "ms but only " + std::to_string(elapsed.count()) + "ms have passed. ");
+        HEC_DEBUG_LOG_INFO("Can't trigger: Minimum delay is  " + std::to_string(minDelay.count()) + "ms but only " + std::to_string(elapsed.count()) + "ms have passed. ");
 #endif
     } else {
         haptic_trigger(type);
